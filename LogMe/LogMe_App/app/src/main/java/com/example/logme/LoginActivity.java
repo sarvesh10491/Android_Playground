@@ -44,30 +44,34 @@ public class LoginActivity extends AppCompatActivity{
         });
     }
 
-    public void SetValidation() {
+    public void SetValidation(){
         // Check for a valid email address.
-        if (email.getText().toString().isEmpty()) {
+        if(email.getText().toString().isEmpty()){
             email.setError(getResources().getString(R.string.email_error));
             isEmailValid = false;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
+        } 
+        else if(!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
             email.setError(getResources().getString(R.string.error_invalid_email));
             isEmailValid = false;
-        } else {
+        } 
+        else{
             isEmailValid = true;
         }
 
         // Check for a valid password.
-        if (password.getText().toString().isEmpty()) {
+        if(password.getText().toString().isEmpty()){
             password.setError(getResources().getString(R.string.password_error));
             isPasswordValid = false;
-        } else if (password.getText().length() < 6) {
+        } 
+        else if(password.getText().length() < 8){
             password.setError(getResources().getString(R.string.error_invalid_password));
             isPasswordValid = false;
-        } else {
+        } 
+        else{
             isPasswordValid = true;
         }
 
-        if (isEmailValid && isPasswordValid) {
+        if(isEmailValid && isPasswordValid){
             Toast.makeText(getApplicationContext(), "Successfully", Toast.LENGTH_SHORT).show();
         }
     }
